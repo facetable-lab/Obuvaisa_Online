@@ -9,3 +9,6 @@ def index(request):
 def products(request):
     """Контроллер страницы продукции"""
     return render(request, 'products/products.html')
+
+
+
