@@ -3,12 +3,20 @@ from django.shortcuts import render
 
 def index(request):
     """Контроллер главной страницы"""
-    return render(request, 'products/index.html')
+    context = {
+        'title': 'Обувайся онлайн'
+    }
+
+    return render(request, 'products/index.html', context)
 
 
 def products(request):
     """Контроллер страницы продукции"""
-    return render(request, 'products/products.html')
+    context = {
+        'title': 'Каталог :: Обувайся онлайн'
+    }
+
+    return render(request, 'products/products.html', context)
 
 
 
