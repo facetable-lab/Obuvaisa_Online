@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from .models import ProductCategory, Product, CarouselImages
+
 
 def index(request):
     """Контроллер главной страницы"""
@@ -13,10 +15,11 @@ def index(request):
 def products(request):
     """Контроллер страницы продукции"""
     context = {
-        'title': 'Каталог :: Обувайся онлайн'
+        'title': 'Каталог :: Обувайся онлайн',
+        'category_qs': ProductCategory.objects.all(),
+        'product_qs': Product.objects.all(),
+        'carousel_images': [CarouselImages.objects.get(pk=1), CarouselImages.objects.get(pk=2),
+                            CarouselImages.objects.get(pk=3)]
     }
 
     return render(request, 'products/products.html', context)
-
-
-
